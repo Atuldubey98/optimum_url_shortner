@@ -19,7 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 app.use(morgan("combined"));
-
+app.get("/health", (_: Request, res: Response) => {
+  res.send("Healthy");
+});
 app.get("/", (_: Request, res: Response) => {
   return res.render("home", {
     title: "Optimum Url Shortner | Always free",
