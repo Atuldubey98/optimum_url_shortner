@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Short URL</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+      }
+
+      .url {
+        font-size: 18px;
+        color: #1a73e8;
+        text-decoration: none;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+
+      .url:hover {
+        text-decoration: underline;
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 18px;
+        color: #000;
+      }
+
+      .social-links a:hover {
+        color: #1a73e8;
+      }
+
+      .social-links a.instagram {
+        color: #e1306c;
+      }
+
+      .social-links a.facebook {
+        color: #3b5998;
+      }
+
+      .social-links a.whatsapp {
+        color: #25d366;
+      }
+
+      .social-links a.gmail {
+        color: #d44638;
+      }
+
+      .social-links a.twitter {
+        color: #00acee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">Your Shortened URL:</div>
+      <a href="<%= shortUrl %>" class="url" target="_blank"><%= shortUrl %></a>
+      <div><a href="/">Shorten another</a></div>
+      <h2>Share via</h2>
+      <div class="social-links">
+        <% sharablePlatforms.forEach(platform => { %>
+          <a href="<%= platform.url %>" target="_blank" class="<%= platform.name.toLowerCase() %>">
+            <%= platform.name %>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>
